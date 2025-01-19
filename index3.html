@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 100px;
+            background-color: #0F1B32;
+            color: #ffffff;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .navigation ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .navigation ul li {
+            display: inline;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            color: #5798CD;
+        }
+
+        .navigation ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .navigation ul li a:hover {
+            color: #5798CD;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .header {
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .navigation ul {
+                display: none;
+                gap: 10px;
+            }
+
+            .img_left,
+            .img_right {
+                display: none;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+                align-items: center;
+            }
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 10px;
+            align-items: center;
+            margin-top: 0px;
+        }
+
+        .img_left {
+            grid-column: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .img_right {
+            grid-column: 3;
+            display: flex;
+            justify-content: center;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .middle {
+            grid-column: 2;
+            display: flex;
+            flex-direction: column;
+            padding: 100px;
+            background-color: #ffffff;
+            text-align: center;
+            align-items: center;
+        }
+
+        .p1 {
+            border: 0.1px solid #9ca0a0;
+            border-radius: 15px;
+            width: fit-content;
+            background-color: #ffffff;
+            font-size: 10px;
+            color: #9ca0a0;
+            padding: 10px;
+            margin-top: -70px;
+            margin-bottom: 40px;
+        }
+
+        .p2 {
+            color: black;
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #00d8a2;
+        }
+
+        .p3 {
+            margin-top: 30px;
+            font-size: 21px;
+            color: #9ca0a0;
+        }
+
+        .img_bot {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .img_bottom img {
+            width: 100%;
+        }
+
+        .form-container {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 10px;
+        }
+
+        .input-box {
+            width: fit-content;
+            padding: 50px 50px;
+            background-color: #d5d6d6;
+            color: #c5c6c6;
+            padding: 10px;
+            font-size: 20px;
+            border: 1px solid #ccc;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .ST_btn {
+            width: fit-content;
+            padding: 10px 20px;
+            background-color: #00d8a2;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .p5 {
+            text-decoration: underline;
+            font-size: 18px;
+            color: #c5c6c6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="imgreg8_logo.png" alt="Logo" />
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li class="dropdown">
+                        <button class="dropbtn">
+                            Developers
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn">
+                            Organizations
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                    </li>
+                    <li><a href="#">Dashboard</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="img_left">
+            <img src="imgreg8_1.png" alt="Image Left">
+        </div>
+
+        <div class="middle">
+            <p class="p1">FOR ORGANIZATIONS</p>
+            <p class="p2"><span class="highlight">Evaluate Candidates</span>
+                Quickly, Affordably, and Accurately</p>
+            <p class="p3">The #1 platform for technical assessments, interviews, and projects.
+                Get unlimited candidates and admins on every plan.
+            </p>
+
+            <div class="form-container">
+                <input type="text" class="input-box" placeholder="Work email address                                      ">
+                <button class="ST_btn">Start Trial</button>
+            </div>
+
+            <p class="p5">Learn more</p>
+        </div>
+
+        <div class="img_right">
+            <img src="imgreg8_2.png" alt="Image Right">
+        </div>
+        <div class="img_bot">
+            <img src="imgreg8_3.png" alt="Bottom Image">
+        </div>
+    </div>
+</body>
+
+</html>
